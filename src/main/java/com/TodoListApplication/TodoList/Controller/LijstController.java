@@ -31,8 +31,11 @@ public class LijstController {
             return new ResponseEntity<Lijst>(HttpStatus.NOT_FOUND);
         }
     }
-
-    @PostMapping("/")
+@PostMapping("/")
+public void add(@RequestBody Lijst lijst){
+        lijstService.saveLijst(lijst);
+}
+    @PutMapping("/{idlijst}")
     public ResponseEntity<?> update(@RequestBody Lijst lijst, @PathVariable Integer idlijst)
     {
         try {
@@ -44,7 +47,6 @@ public class LijstController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
     @DeleteMapping("/{idlijst}")
     public void delete(@PathVariable Integer idlijst){
         lijstService.verwijderLijst(idlijst);
