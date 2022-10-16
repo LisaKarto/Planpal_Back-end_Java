@@ -7,14 +7,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Calendar;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping("/lijsten")
 public class LijstController {
-@Autowired LijstService lijstService;
+
+    @Autowired LijstService lijstService;
 
     @GetMapping("")
     public List<Lijst> List() {
@@ -31,10 +37,11 @@ public class LijstController {
             return new ResponseEntity<Lijst>(HttpStatus.NOT_FOUND);
         }
     }
-@PostMapping("/")
-public void add(@RequestBody Lijst lijst){
+    @PostMapping("/")
+    public void add(@RequestBody Lijst lijst)
+    {
         lijstService.saveLijst(lijst);
-}
+    }
     @PutMapping("/{idlijst}")
     public ResponseEntity<?> update(@RequestBody Lijst lijst, @PathVariable Integer idlijst)
     {

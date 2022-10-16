@@ -1,7 +1,7 @@
 package com.TodoListApplication.TodoList.Service;
 
 import com.TodoListApplication.TodoList.model.Lijst;
-import com.TodoListApplication.TodoList.Repository.repository;
+import com.TodoListApplication.TodoList.Repository.LijstRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.List;
 
 public class LijstService {
     @Autowired
-    private repository lijstRepository;
+    private LijstRepository lijstRepository;
 
     public List<Lijst> SchermAlleLijsten() {
         return lijstRepository.findAll();
