@@ -1,6 +1,6 @@
 package com.TodoListApplication.TodoList.Service;
 
-import com.TodoListApplication.TodoList.model.List;
+import com.TodoListApplication.TodoList.model.ListModel;
 import com.TodoListApplication.TodoList.Repository.ListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +14,15 @@ public class ListService {
     @Autowired
     private ListRepository listRepository;
 
-    public java.util.List<List> ShowAllLists() {
+    public java.util.List<ListModel> ShowAllLists() {
         return listRepository.findAll();
     }
 
-    public void saveList(List list) {
-        listRepository.save(list);
+    public void saveList(ListModel listModel) {
+        listRepository.save(listModel);
     }
 
-    public List getList(Integer idlist) {
+    public ListModel getList(Integer idlist) {
         return listRepository.findById(idlist).get();
     }
 

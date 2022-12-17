@@ -8,17 +8,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "lists")
-public class List {
+public class ListModel {
 
     private int idList;
     private String listName;
     private String listType;
 
-    public List() {
+    public ListModel() {
 
     }
 
-    public List(int idList, String listName, String listType) {
+    public ListModel(int idList, String listName, String listType) {
         this.idList = idList;
         this.listName = listName;
         this.listType = listType;
