@@ -1,7 +1,7 @@
-package com.TodoListApplication.TodoList.Service;
+package com.todoapplication.todolist.service;
 
-import com.TodoListApplication.TodoList.model.ListModel;
-import com.TodoListApplication.TodoList.Repository.ListRepository;
+import com.todoapplication.todolist.model.ListModel;
+import com.todoapplication.todolist.repository.ListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

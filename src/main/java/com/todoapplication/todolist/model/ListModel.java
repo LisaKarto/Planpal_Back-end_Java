@@ -1,4 +1,4 @@
-package com.TodoListApplication.TodoList.model;
+package com.todoapplication.todolist.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
