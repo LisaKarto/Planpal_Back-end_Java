@@ -21,22 +21,22 @@ public class ListController {
     ListService listService;
 
     @GetMapping("")
-    public java.util.List<ListModel> List() {
+    public java.util.List<ListModel> listAll() {
        return listService.ShowAllLists();
     }
 
     @GetMapping("/{idlist}")
     public ResponseEntity<ListModel> get(@PathVariable Integer idlist){
         try {
-            ListModel listModel = listService.getList(idlist);
-            return new ResponseEntity<ListModel>(listModel, HttpStatus.OK);
+            ListModel requestedList = listService.getList(idlist);
+            return new ResponseEntity<ListModel>(requestedList, HttpStatus.OK);
         }
         catch (NoSuchElementException e){
             return new ResponseEntity<ListModel>(HttpStatus.NOT_FOUND);
         }
     }
     @PostMapping("/")
-    public ResponseEntity<?> add(@RequestBody ListModel listModel)
+    public ResponseEntity<ListModel> add(@RequestBody ListModel listModel)
     {
         try {
             listService.saveList(listModel);
@@ -46,10 +46,10 @@ public class ListController {
         }
     }
     @PutMapping("/{idlist}")
-    public ResponseEntity<?> update(@RequestBody ListModel listModel, @PathVariable Integer idlist)
+    public ResponseEntity<ListModel> update(@RequestBody ListModel listModel, @PathVariable Integer idlist)
     {
         try {
-            ListModel existlijst = listService.getList(idlist);
+//            ListModel existlijst = listService.getList(idlist);
             listModel.setIdlist(idlist);
             listService.saveList(listModel);
             return new ResponseEntity<>(HttpStatus.OK);
