@@ -1,6 +1,6 @@
-package com.TodoListApplication.TodoList.Repository;
+package com.todoapplication.todolist.repository;
 
-import com.TodoListApplication.TodoList.model.ListModel;
+import com.todoapplication.todolist.model.ListModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ListRepository extends JpaRepository<ListModel, Integer>{

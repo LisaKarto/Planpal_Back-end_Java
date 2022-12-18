@@ -1,11 +1,10 @@
-package com.TodoListApplication.TodoList.Controller;
+package com.todoapplication.todolist.controller;
 
-import com.TodoListApplication.TodoList.model.ListModel;
-import com.TodoListApplication.TodoList.Service.ListService;
+import com.todoapplication.todolist.model.ListModel;
+import com.todoapplication.todolist.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.NoSuchElementException;
 
-@CrossOrigin(origins = CORSWhiteList.VueFrontEnd, allowedHeaders = "*")
+@CrossOrigin(origins = CORSWhiteList.VUEFRONTEND, allowedHeaders = "*")
 @RestController
 @RequestMapping("/lists")
 public class ListController {

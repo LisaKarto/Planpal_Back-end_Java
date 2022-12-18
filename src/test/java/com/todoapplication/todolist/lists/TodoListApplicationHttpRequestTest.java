@@ -1,12 +1,12 @@
-package com.TodoListApplication.TodoList.lists;
+package com.todoapplication.todolist.lists;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.TodoListApplication.TodoList.Service.ListService;
-import com.TodoListApplication.TodoList.model.ListModel;
+import com.todoapplication.todolist.service.ListService;
+import com.todoapplication.todolist.model.ListModel;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

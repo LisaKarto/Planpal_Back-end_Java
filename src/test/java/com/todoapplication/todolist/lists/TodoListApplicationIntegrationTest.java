@@ -1,21 +1,13 @@
-package com.TodoListApplication.TodoList.lists;
-import com.TodoListApplication.TodoList.Controller.ListController;
-import com.TodoListApplication.TodoList.Repository.ListRepository;
-import com.TodoListApplication.TodoList.Service.ListService;
-import com.TodoListApplication.TodoList.model.ListModel;
+package com.todoapplication.todolist.lists;
+import com.todoapplication.todolist.repository.ListRepository;
+import com.todoapplication.todolist.service.ListService;
+import com.todoapplication.todolist.model.ListModel;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
 public class TodoListApplicationIntegrationTest
