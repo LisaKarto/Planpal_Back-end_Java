@@ -48,10 +48,10 @@ public class ListController {
         }
     }
     @PutMapping("/{idlist}")
-    public ResponseEntity<ListModel> update(@RequestBody ListModel listModel, @PathVariable Integer idlist)
+    public ResponseEntity<ListModel> update(@RequestBody ListRequestModel ListRequestModel, @PathVariable Integer idlist)
     {
         try {
-//            ListModel existlijst = listService.getList(idlist);
+            ListModel listModel =  new ListModel(ListRequestModel);
             listModel.setIdlist(idlist);
             listService.saveList(listModel);
             return new ResponseEntity<>(HttpStatus.OK);
