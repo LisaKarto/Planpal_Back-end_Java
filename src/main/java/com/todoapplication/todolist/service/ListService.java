@@ -23,7 +23,7 @@ public class ListService {
     }
 
     public ListModel getList(Integer idlist) {
-        return listRepository.findById(idlist).get();
+        return listRepository.findById(idlist).orElse(null);
     }
 
     public void deleteList(Integer idlist) {
