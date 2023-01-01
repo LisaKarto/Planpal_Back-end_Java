@@ -1,5 +1,7 @@
 package com.todoapplication.todolist.model;
 
+import com.todoapplication.todolist.RequestModels.ListRequestModel;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.GeneratedValue;
@@ -22,6 +24,12 @@ public class ListModel {
         this.idList = idList;
         this.listName = listName;
         this.listType = listType;
+    }
+
+    public ListModel(ListRequestModel listRequestModel) {
+        this.idList = listRequestModel.getIdlist();
+        this.listName = listRequestModel.getlistName();
+        this.listType = listRequestModel.getlistType();
     }
 
     @Id

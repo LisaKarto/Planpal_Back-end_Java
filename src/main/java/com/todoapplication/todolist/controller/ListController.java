@@ -1,5 +1,6 @@
 package com.todoapplication.todolist.controller;
 
+import com.todoapplication.todolist.RequestModels.ListRequestModel;
 import com.todoapplication.todolist.model.ListModel;
 import com.todoapplication.todolist.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,9 +37,10 @@ public class ListController {
         }
     }
     @PostMapping("/")
-    public ResponseEntity<ListModel> add(@RequestBody ListModel listModel)
+    public ResponseEntity<ListModel> add(@RequestBody ListRequestModel ListRequestModel)
     {
         try {
+            ListModel listModel =  new ListModel(ListRequestModel);
             listService.saveList(listModel);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (NoSuchElementException e){
