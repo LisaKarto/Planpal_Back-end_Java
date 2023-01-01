@@ -1,6 +1,6 @@
 package com.todoapplication.todolist.controller;
 
-import com.todoapplication.todolist.RequestModels.ListRequestModel;
+import com.todoapplication.todolist.requestmodels.ListRequestModel;
 import com.todoapplication.todolist.model.ListModel;
 import com.todoapplication.todolist.service.ListService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,17 +30,17 @@ public class ListController {
     public ResponseEntity<ListModel> get(@PathVariable Integer idlist){
         try {
             ListModel requestedList = listService.getList(idlist);
-            return new ResponseEntity<ListModel>(requestedList, HttpStatus.OK);
+            return new ResponseEntity<>(requestedList, HttpStatus.OK);
         }
         catch (NoSuchElementException e){
-            return new ResponseEntity<ListModel>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
     @PostMapping("/")
-    public ResponseEntity<ListModel> add(@RequestBody ListRequestModel ListRequestModel)
+    public ResponseEntity<ListModel> add(@RequestBody ListRequestModel listRequestModel)
     {
         try {
-            ListModel listModel =  new ListModel(ListRequestModel);
+            ListModel listModel =  new ListModel(listRequestModel);
             listService.saveList(listModel);
             return new ResponseEntity<>(HttpStatus.CREATED);
         } catch (NoSuchElementException e){
@@ -48,10 +48,10 @@ public class ListController {
         }
     }
     @PutMapping("/{idlist}")
-    public ResponseEntity<ListModel> update(@RequestBody ListRequestModel ListRequestModel, @PathVariable Integer idlist)
+    public ResponseEntity<ListModel> update(@RequestBody ListRequestModel listRequestModel, @PathVariable Integer idlist)
     {
         try {
-            ListModel listModel =  new ListModel(ListRequestModel);
+            ListModel listModel =  new ListModel(listRequestModel);
             listModel.setIdlist(idlist);
             listService.saveList(listModel);
             return new ResponseEntity<>(HttpStatus.OK);
