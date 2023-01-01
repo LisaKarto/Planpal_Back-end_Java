@@ -23,8 +23,10 @@ public class ListService {
         listRepository.save(listModel);
     }
 
-    public ListModel getList(Integer idlist) { return  listRepository.findById(idlist).get();}
-
+    public ListModel getList(Integer idlist) {
+        return listRepository.findById(idlist).orElse(null);
+    }
+    
     public void deleteList(Integer idlist) {
         listRepository.deleteById(idlist);
     }
