@@ -1,6 +1,6 @@
 package com.todoapplication.todolist.model;
 
-import com.todoapplication.todolist.RequestModels.ListRequestModel;
+import com.todoapplication.todolist.requestmodels.ListRequestModel;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

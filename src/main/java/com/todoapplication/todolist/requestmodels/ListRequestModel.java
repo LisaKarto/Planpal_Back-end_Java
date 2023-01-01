@@ -1,4 +1,4 @@
-package com.todoapplication.todolist.RequestModels;
+package com.todoapplication.todolist.requestmodels;
 
 
 public class ListRequestModel {
