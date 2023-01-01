@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.Optional;
 
 @Service
 @Transactional
@@ -15,7 +14,7 @@ public class ListService {
     @Autowired
     private ListRepository listRepository;
 
-    public java.util.List<ListModel> ShowAllLists() {
+    public java.util.List<ListModel> showAllLists() {
         return listRepository.findAll();
     }
 

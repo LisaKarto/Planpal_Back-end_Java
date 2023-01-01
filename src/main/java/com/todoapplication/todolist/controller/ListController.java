@@ -23,7 +23,7 @@ public class ListController {
 
     @GetMapping("")
     public java.util.List<ListModel> listAll() {
-       return listService.ShowAllLists();
+       return listService.showAllLists();
     }
 
     @GetMapping("/{idlist}")
