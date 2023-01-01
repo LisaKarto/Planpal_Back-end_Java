@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -25,7 +26,7 @@ public class ListService {
     public ListModel getList(Integer idlist) {
         return listRepository.findById(idlist).orElse(null);
     }
-
+    
     public void deleteList(Integer idlist) {
         listRepository.deleteById(idlist);
     }
