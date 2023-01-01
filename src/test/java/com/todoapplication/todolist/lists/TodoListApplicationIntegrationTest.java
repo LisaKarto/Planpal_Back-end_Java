@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 
 @SpringBootTest
-public class TodoListApplicationIntegrationTest
+ class TodoListApplicationIntegrationTest
 {
     @Autowired
     ListService service;
