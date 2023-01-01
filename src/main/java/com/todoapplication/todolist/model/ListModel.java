@@ -27,9 +27,9 @@ public class ListModel {
     }
 
     public ListModel(ListRequestModel listRequestModel) {
-        this.idList = listRequestModel.getIdlist();
-        this.listName = listRequestModel.getlistName();
-        this.listType = listRequestModel.getlistType();
+        this.idList = listRequestModel.idList;
+        this.listName = listRequestModel.listName;
+        this.listType = listRequestModel.listType;
     }
 
     @Id
