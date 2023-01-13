@@ -1,12 +1,12 @@
-package com.TodoListApplication.TodoList.lists;
+package com.todoapplication.todolist.lists;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.TodoListApplication.TodoList.Service.ListService;
-import com.TodoListApplication.TodoList.model.ListModel;
+import com.todoapplication.todolist.service.ListService;
+import com.todoapplication.todolist.model.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,7 +43,7 @@ public class TodoListApplicationHttpRequestTest {
     @Test
     void PostListSuccess() throws Exception{
         this.mockMvc.perform(post("/lists/")
-                .content(asJsonString(new ListModel(1,"newList","ListType")))
+                .content(asJsonString(new List(1,"newList","ListType")))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated());
@@ -61,7 +61,7 @@ public class TodoListApplicationHttpRequestTest {
     @Test
     void PutListSuccess() throws Exception{
         this.mockMvc.perform(put("/lists/{idlist}",1)
-                        .content(asJsonString(new ListModel(1,"putlist","putType")))
+                        .content(asJsonString(new List(1,"putlist","putType")))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
