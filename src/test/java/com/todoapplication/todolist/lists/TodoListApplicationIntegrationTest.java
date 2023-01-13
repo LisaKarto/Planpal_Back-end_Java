@@ -12,22 +12,5 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 @SpringBootTest
  class TodoListApplicationIntegrationTest
 {
-    @Autowired
-    ListService service;
-    @Autowired
-    ListRepository repository;
-
-    // post
-//    @Test
-//     void insertListIntoDatabase() throws Exception{
-//        ListModel ListToBeSaved = new ListModel(1,"List from Test","IntegrationTest");
-//        service.saveList(ListToBeSaved);
-//        assertThat(service.getList(1)).isNotNull();
-//    }
-//    // get by id
-//    @Test
-//     void getListByID() throws Exception{
-//        assertThat(service.getList(1)).isNotNull();
-//    }
 
 }
