@@ -5,10 +5,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.todoapplication.todolist.dto.ListRequest;
+import com.todoapplication.todolist.dto.ListResponse;
 import com.todoapplication.todolist.service.ListService;
 import com.todoapplication.todolist.model.List;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -31,6 +36,13 @@ public class TodoListApplicationHttpRequestTest {
     void GetallLists() throws Exception{
         this.mockMvc.perform(get("/lists")).andDo(print()).andExpect(status().isOk());
     }
+    // new test to get specific lists USSD
+    @Test
+    void GetUserLists() throws Exception{
+        this.mockMvc.perform(get("/lists/mylists/testuid"))
+                .andDo(print())
+                .andExpect(status().isOk());
+    }
 
     @Test
     void GetListOnID() throws Exception{
@@ -42,8 +54,15 @@ public class TodoListApplicationHttpRequestTest {
     // post
     @Test
     void PostListSuccess() throws Exception{
+        ListRequest testlist = new ListRequest();
+        testlist.setIdList(1);
+        testlist.setListName("newName");
+        testlist.setListType("newType");
+        testlist.setUID("testuid");
+        testlist.setIsDone(0);
+
         this.mockMvc.perform(post("/lists/")
-                .content(asJsonString(new List(1,"newList","ListType")))
+                .content(asJsonString(testlist))
                 .contentType(MediaType.APPLICATION_JSON)
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated());
@@ -60,8 +79,15 @@ public class TodoListApplicationHttpRequestTest {
     // put
     @Test
     void PutListSuccess() throws Exception{
+        ListRequest testlist = new ListRequest();
+        testlist.setIdList(1);
+        testlist.setListName("newName");
+        testlist.setListType("newType");
+        testlist.setUID("testuid");
+        testlist.setIsDone(0);
+
         this.mockMvc.perform(put("/lists/{idlist}",1)
-                        .content(asJsonString(new List(1,"putlist","putType")))
+                        .content(asJsonString(testlist))
                         .contentType(MediaType.APPLICATION_JSON)
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
@@ -74,17 +100,8 @@ public class TodoListApplicationHttpRequestTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
-    // Nothingtest
-    @Test
-    void Nothing() throws Exception
-    {
-       
-    }
-    
-    
-    
-    
-    
+
+
     public static String asJsonString(final Object obj) {
         try {
             return new ObjectMapper().writeValueAsString(obj);
