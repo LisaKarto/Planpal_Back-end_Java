@@ -74,6 +74,14 @@ public class TodoListApplicationHttpRequestTest {
                         .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
+    // Nothingtest
+    @Test
+    void Nothing() throws Exception
+    {
+       
+    }
+    
+    
     
     
     
