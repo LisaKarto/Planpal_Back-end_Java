@@ -13,4 +13,6 @@ public class ListRequest {
     private int idList;
     private String listName;
     private String listType;
+    private String UID;
+    private int isDone;
 }
