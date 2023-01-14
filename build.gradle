@@ -9,6 +9,7 @@ plugins {
 
 test {
 	finalizedBy jacocoTestReport
+	testLogging.showStandardStreams = true
 }
 
 jacocoTestReport {

@@ -3,7 +3,6 @@ package com.todoapplication.todolist.controller;
 import com.todoapplication.todolist.dto.ListRequest;
 import com.todoapplication.todolist.dto.ListResponse;
 import com.todoapplication.todolist.model.List;
-import com.todoapplication.todolist.model.List;
 import com.todoapplication.todolist.service.ListService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
