@@ -29,6 +29,11 @@ public class ListController {
     public java.util.List<ListResponse> listAll() {
        return listService.showAllLists();
     }
+    // get all lists from user
+    @GetMapping("/mylists/{UID}")
+    public java.util.List<ListResponse> listAllFromUser(@PathVariable String UID) {
+        return listService.ShowAllListsFromUser(UID);
+    }
 
     @GetMapping("/{idlist}")
     public ResponseEntity<List> get(@PathVariable Integer idlist){
