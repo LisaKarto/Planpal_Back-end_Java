@@ -75,10 +75,6 @@ public class TodoListApplicationHttpRequestTest {
                 .andExpect(status().isOk());
     }
     
-    @Test
-    void Test() throws Exception{
-        
-    }
     
     
     public static String asJsonString(final Object obj) {
