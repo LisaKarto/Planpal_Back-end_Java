@@ -13,7 +13,7 @@ jobs:
       - uses: mirromutth/mysql-action@v1.1
         with:
           mysql database: 'lists_and_tasks'
-          mysql root password: "root66" # Required if "mysql user" is empty, default is empty. The root superuser password
+          mysql root password: ${{ secrets.MYSQL_PASSWORD }} # Required if "mysql user" is empty, default is empty. The root superuser password
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
