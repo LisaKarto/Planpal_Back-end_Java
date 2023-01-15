@@ -24,6 +24,6 @@ jobs:
           push: true
           tags: lisakarto/planpalbackend_hub:latest
       - name: build docker image
-        run:  docker build . --file Dockerfile --tag lisakarto/planpalbackend_hub:latest
+        run:  docker build . --tag lisakarto/planpalbackend_hub:latest
       - name: push to docker
         run: docker push lisakarto/planpalbackend_hub:latest
